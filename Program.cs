@@ -41,8 +41,8 @@ namespace Consoleprueba
                 testSuccess.AddScreenCaptureFromPath(screenshotPath, "Página de inicio de sesión");
 
                 // Automatizar el formulario de inicio de sesión con credenciales correctas
-                driver.FindElement(By.Id("login_field")).SendKeys("TheDahakaRD");
-                driver.FindElement(By.Id("password")).SendKeys("0106@E,Hapy");
+                driver.FindElement(By.Id("login_field")).SendKeys("Usuario");//coloque su usuario
+                driver.FindElement(By.Id("password")).SendKeys("Contraseña");//Coloque su contraseña
                 driver.FindElement(By.Name("commit")).Click();
 
                 // Capturar pantalla después de iniciar sesión
@@ -52,8 +52,8 @@ namespace Consoleprueba
                 // Esperar a que la página cargue
                 System.Threading.Thread.Sleep(2000);
 
-                // Hacer clic en el repositorio 'Practica_III_Prog_III'
-                var repoLink = driver.FindElement(By.CssSelector("a[href='/TheDahakaRD/Practica_III_Prog_III']"));
+                // Hacer clic en el repositorio 
+                var repoLink = driver.FindElement(By.CssSelector("a[href='/**']")); //Remplace las comillas por el nombre de usuario y repositoro
                 repoLink.Click();
 
                 // Esperar que se cargue el repositorio
@@ -62,21 +62,21 @@ namespace Consoleprueba
                 screenshotPath = CaptureScreenshot(driver, "LoggedInRepoPage");
                 testSuccess.AddScreenCaptureFromPath(screenshotPath, "Página del Repositorio");
 
-                // Hacer clic en el archivo 'Git Flow P1.pdf'
-                driver.FindElement(By.LinkText("Git Flow P1 .pdf")).Click();
+                // Hacer clic en el archivo 
+                driver.FindElement(By.LinkText("**")).Click(); //Remlace las comillas por el nombre del archivo 
 
                 // Esperar a que se cargue el PDF
                 System.Threading.Thread.Sleep(3000);
 
-                // Hacer scroll hacia abajo dentro del PDF
+                // Hacer scroll hacia abajo dentro del archivo
                 IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
                 js.ExecuteScript("window.scrollBy(0, 1000);");
 
-                // Capturar pantalla del PDF abierto
-                screenshotPath = CaptureScreenshot(driver, "GitFlowPDF");
-                testSuccess.AddScreenCaptureFromPath(screenshotPath, "Archivo PDF Git Flow P1");
+                // Capturar pantalla del archivo abierrto
+                screenshotPath = CaptureScreenshot(driver, "Archivo");
+                testSuccess.AddScreenCaptureFromPath(screenshotPath, "Archivo abierto");
 
-                testSuccess.Pass("Inicio de sesión exitoso, repositorio abierto y archivo PDF Git Flow P1 cargado.");
+                testSuccess.Pass("Inicio de sesión exitoso, repositorio abierto y archivo 1 cargado.");
 
                 testSuccess.Log(AventStack.ExtentReports.Status.Info, "Cerrando sesión");
                 driver.Navigate().GoToUrl("https://github.com/logout");
