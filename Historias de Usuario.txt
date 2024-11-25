@@ -1,0 +1,68 @@
+Historia de Usuario 1: Inicio de sesión con credenciales correctas Como usuario registrado,quiero poder iniciar sesión con mi nombre de usuario y contraseña correctos, para acceder a mi cuenta y comenzar a usar la aplicación.
+
+Criterios de Aceptación:
+
+- El formulario de inicio de sesión debe tener campos para el nombre de usuario y la contraseña.
+- El usuario puede ingresar su nombre de usuario y contraseña y hacer clic en el botón de "Iniciar sesión".
+- Si las credenciales son correctas, el sistema debe redirigir al usuario a la página principal de la aplicación.
+- El sistema debe mostrar un mensaje de bienvenida en la página principal.
+- El proceso de inicio de sesión debe completarse en menos de 3 segundos.
+  
+Criterios de Rechazo:
+
+- Si el nombre de usuario o la contraseña son incorrectos, el sistema debe mostrar un mensaje de error claro ("Usuario o contraseña incorrectos").
+- Si no se han ingresado las credenciales, el sistema debe mostrar un mensaje de advertencia ("Por favor ingrese su nombre de usuario y contraseña").
+- Si el servidor está inactivo o la red no está disponible, el sistema debe mostrar un mensaje de error ("Error al conectarse al servidor").
+  
+Historia de Usuario 2: Inicio de sesión con credenciales incorrectas Como usuario, quiero ser notificado cuando ingrese credenciales incorrectas,para saber que debo corregirlas.
+
+Criterios de Aceptación:
+
+- Si el usuario ingresa un nombre de usuario o contraseña incorrectos, el sistema debe mostrar un mensaje de error.
+- El mensaje de error debe ser claro y específico: "Usuario o contraseña incorrectos".
+- El formulario debe mantener los campos de entrada de nombre de usuario y contraseña con los valores ingresados, para que el usuario pueda corregir la información fácilmente.
+
+Criterios de Rechazo:
+
+- Si no se ingresa ninguna información en el formulario, el sistema debe mostrar un mensaje que indique que los campos son obligatorios.
+- El sistema no debe bloquear al usuario por intentos fallidos, pero debe limitar los intentos a 5 para evitar ataques de fuerza bruta.
+
+Historia de Usuario 3: Recuperación de contraseña omo usuario que olvidó su contraseña, quiero poder solicitar un enlace para recuperar mi contraseña, para poder restablecer mi acceso a la aplicación.
+
+Criterios de Aceptación:
+
+- En la pantalla de inicio de sesión, debe haber un enlace de "¿Olvidaste tu contraseña?".
+- Al hacer clic en este enlace, el sistema debe solicitar el correo electrónico del usuario.
+- El sistema debe enviar un correo electrónico con un enlace para restablecer la contraseña.
+- El enlace debe ser válido durante 24 horas.
+- Al hacer clic en el enlace, el usuario debe poder ingresar una nueva contraseña y confirmarla.
+- Después de restablecer la contraseña, el usuario debe poder iniciar sesión con la nueva contraseña inmediatamente.
+
+Criterios de Rechazo:
+
+- El enlace de recuperación de contraseña debe expirar después de 24 horas para mantener la seguridad.
+- Si el correo electrónico ingresado no está registrado en el sistema, el sistema debe notificar al usuario con un mensaje como: "Correo electrónico no registrado".
+
+Historia de Usuario 4: Verificación de sesión activa Como usuario,quiero ser notificado si intento acceder a una página mientras mi sesión ha caducado, para saber que debo volver a iniciar sesión.
+
+Criterios de Aceptación:
+
+- El sistema debe verificar automáticamente si la sesión del usuario ha caducado al intentar acceder a una nueva página.
+- Si la sesión ha caducado, el sistema debe redirigir al usuario a la página de inicio de sesión.
+- El sistema debe mostrar un mensaje indicando que la sesión ha expirado y debe iniciar sesión nuevamente.
+- Criterios de Rechazo:
+- Si el sistema no verifica la sesión del usuario o permite el acceso a páginas protegidas sin autenticación, esto se consideraría un error de seguridad.
+- El sistema no debe permitir la navegación a páginas protegidas sin haber iniciado sesión.
+
+Historia de Usuario 5: Visualización de error en login tras múltiples intentos fallidos Como usuario, quiero ser notificado tras realizar demasiados intentos fallidos de inicio de sesión, para evitar que se sigan haciendo intentos incorrectos por seguridad.
+
+Criterios de Aceptación:
+
+- Si el usuario realiza más de 5 intentos fallidos de inicio de sesión, el sistema debe mostrar un mensaje informando que el acceso está bloqueado temporalmente debido a intentos fallidos.
+- El sistema debe enviar un correo electrónico al usuario notificándole sobre los intentos fallidos.
+- El sistema debe bloquear temporalmente la cuenta durante 10 minutos antes de permitir nuevos intentos de inicio de sesión.
+
+Criterios de Rechazo:
+
+- Si el sistema no limita los intentos de inicio de sesión después de múltiples intentos fallidos, se considera un error de seguridad.
+- Si el sistema no notifica al usuario cuando la cuenta está bloqueada temporalmente, se considera una falla de experiencia de usuario.
